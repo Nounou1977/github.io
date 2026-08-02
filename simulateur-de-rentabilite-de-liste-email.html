@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil simulateur de rentabilité de liste email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .resultat {
+            padding: 20px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .bouton {
+            background-color: #34c759;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .bouton:hover {
+            background-color: #2ecc71;
+        }
+        .marge {
+            margin: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resultat">
+            <h2>Résultat du calcul</h2>
+            <p id="resultat"></p>
+        </div>
+        <div class="marge"></div>
+        <div class="bouton">
+            <span>Créez votre site web, vos tunnels de vente et automatisez votre business avec</span>
+            <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" style="color: #fff; text-decoration: none;">Systeme.io.</a>
+            <span> Maintenant que vous avez ce résultat, passez à l'étape suivante.</span><br>
+            <span>Lancer mon business en ligne (Essai Gratuit)</span>
+        </div>
+    </div>
+    <script>
+        // Fonction pour simuler une rentabilité de liste email
+        function simulateurRentabilite(listeEmail) {
+            // Calcul de la rentabilité (en %)
+            let rentabilite = (listeEmail * 2.5) / 100;
+            return rentabilite;
+        }
+        
+        // Fonction pour afficher le résultat du calcul
+        function afficherResultat() {
+            let valeurListeEmail = document.getElementById('valeur-liste-email').value;
+            let resultat = simulateurRentabilite(valeurListeEmail);
+            document.getElementById('resultat').innerHTML = `La rentabilité de votre liste email est de ${resultat.toFixed(2)}%`;
+        }
+        
+        // Ecouteur d'événement pour le calcul du résultat
+        document.getElementById('calcule').addEventListener('click', afficherResultat);
+    </script>
+    <input type="number" id="valeur-liste-email" placeholder="Entrez la valeur de votre liste email">
+    <button id="calcule">Calculer</button>
+</body>
+</html>
