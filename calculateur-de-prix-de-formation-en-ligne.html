@@ -1,0 +1,84 @@
+Voici le code HTML que vous demandez :
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de prix de formation en ligne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        #resultat {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #bouton-affiliation {
+            margin: 50px auto;
+            display: block;
+            width: 250px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #1ABC9C;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #bouton-affiliation:hover {
+            background-color: #2ECC71;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculateur de prix de formation en ligne</h1>
+    
+    <form id="formulaire">
+        <label for="coefficient">Coefficient de perte de chiffre d'affaires (entre 0 et 1) :</label>
+        <input type="number" id="coefficient" name="coefficient" step="0.01" min="0" max="1">
+        
+        <label for="nombre_etudiants">Nombre d'étudiants (en nombre de personnes) :</label>
+        <input type="number" id="nombre_etudiants" name="nombre_etudiants" min="1">
+        
+        <label for="durée_formacion">Durée de la formation en heures :</label>
+        <input type="number" id="durée_formacion" name="durée_formacion" step="0.01" min="1">
+        
+        <input type="submit" value="Calculer le prix">
+    </form>
+    
+    <div id="resultat"></div>
+    
+    <p id="message"></p>
+    
+    <button id="bouton-affiliation" type="button">Lancer mon business en ligne (Essai Gratuit)</button>
+    <script>
+        document.getElementById("bouton-affiliation").href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89"
+        document.getElementById("bouton-affiliation").onclick = function() {
+            window.open("https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89", "_blank");
+        }
+        document.getElementById("formulaire").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var coefficient = parseFloat(document.getElementById("coefficient").value);
+            var nombre_etudiants = parseInt(document.getElementById("nombre_etudiants").value);
+            var durée_formacion = parseFloat(document.getElementById("durée_formacion").value);
+            var prix = coefficient * nombre_etudiants * durée_formacion;
+            document.getElementById("resultat").innerHTML = "Le prix de la formation est de " + prix.toFixed(2) + " euros.";
+        });
+    </script>
+</body>
+</html>
+
+
+Ce code crée un formulaire à 3 entrées : le coefficient de perte de chiffre d'affaires, le nombre d'étudiants et la durée de la formation. Lorsque le formulaire est soumis, le calculateur calcule le prix de la formation en multipliant le coefficient, le nombre d'étudiants et la durée de la formation. Le résultat est affiché dans un grand encadré. Ensuite, le bouton d'affiliation est affiché avec un texte qui incite l'utilisateur à passer à l'étape suivante pour créer un business en ligne avec Systeme.io. Le lien du bouton pointe vers Systeme.io. Les conditions de conception ont été respectées.
