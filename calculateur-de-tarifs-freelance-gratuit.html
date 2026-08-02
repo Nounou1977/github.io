@@ -1,440 +1,84 @@
+Voici le code HTML pour la page :
+
 
 <!DOCTYPE html>
-<html lang="fr" class="h-full bg-slate-50">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de TJM & Tarifs Freelance - Gratuit & Instantané</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Outil calculateur de tarifs freelance gratuit</title>
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
-        /* Custom range slider styling */
-        input[type=range] {
-            accent-color: #4f46e5;
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #3e8e41;
         }
     </style>
 </head>
-<body class="min-h-full flex flex-col justify-between text-slate-800 antialiased selection:bg-indigo-500 selection:text-white">
+<body>
+    <div class="container">
+        <h1>Outil calculateur de tarifs freelance gratuit</h1>
+        <form id="formulaire">
+            <label for="heure">Heures travaillées</label>
+            <input type="number" id="heure" name="heure" required>
+            <br><br>
+            <label for="tarif">Tarif horaire</label>
+            <input type="number" id="tarif" name="tarif" required>
+            <br><br>
+            <label for="pourcentage">Taux de TVA</label>
+            <input type="number" id="pourcentage" name="pourcentage" required>
+            <br><br>
+            <button type="submit">Calculez ma facture</button>
+        </form>
+        <div id="resultat" style="margin-bottom: 50px;"></div>
+        <p>Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.</p>
+        <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="button">Lancer mon business en ligne (Essai Gratuit)</a>
+    </div>
 
-    <!-- Header / Navbar -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md shadow-indigo-200">
-                    <i class="fa-solid font-bold fa-calculator text-xl"></i>
-                </div>
-                <div>
-                    <span class="font-extrabold text-xl tracking-tight text-slate-900 block leading-none">FreelanceRate</span>
-                    <span class="text-xs text-indigo-600 font-semibold tracking-wider uppercase">Calculateur de TJM</span>
-                </div>
-            </div>
-            <div class="hidden sm:flex items-center gap-2 text-sm text-slate-500 font-medium bg-slate-100 px-3 py-1.5 rounded-full">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                100% Gratuit & Sans Inscription
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        
-        <!-- Hero Section -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-                Calculez votre <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Tarif Journalier Moyen (TJM)</span> idéal
-            </h1>
-            <p class="text-lg text-slate-600">
-                Définissez vos objectifs financiers et découvrez instantanément le tarif à facturer à vos clients pour atteindre votre salaire cible.
-            </p>
-        </div>
-
-        <!-- Calculator Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Left Column: Inputs Form -->
-            <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-200/60 border border-slate-100 space-y-6">
-                
-                <div class="border-b border-slate-100 pb-4 mb-2 flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-sliders text-indigo-600"></i> Vos Paramètres
-                    </h2>
-                    <span class="text-xs text-slate-400 font-medium">* Ajustez les curseurs</span>
-                </div>
-
-                <!-- Input 1: Net Salary -->
-                <div>
-                    <div class="flex justify-between items-center mb-2">
-                        <label for="netSalary" class="font-semibold text-slate-700 text-sm sm:text-base flex items-center gap-2">
-                            <i class="fa-solid fa-wallet text-slate-400"></i> Revenu net mensuel souhaité
-                        </label>
-                        <div class="flex items-center gap-1 bg-indigo-50 border border-indigo-100 text-indigo-700 font-bold px-3 py-1 rounded-lg">
-                            <input type="number" id="netSalaryInput" value="3000" class="w-16 bg-transparent text-right outline-none font-bold text-indigo-700"> €
-                        </div>
-                    </div>
-                    <input type="range" id="netSalary" min="1000" max="15000" step="100" value="3000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                    <p class="text-xs text-slate-400 mt-1">Ce que vous souhaitez vraiment dans votre poche à la fin du mois.</p>
-                </div>
-
-                <!-- Input 2: Professional Expenses -->
-                <div>
-                    <div class="flex justify-between items-center mb-2">
-                        <label for="expenses" class="font-semibold text-slate-700 text-sm sm:text-base flex items-center gap-2">
-                            <i class="fa-solid fa-receipt text-slate-400"></i> Charges professionnelles mensuelles
-                        </label>
-                        <div class="flex items-center gap-1 bg-slate-100 border border-slate-200 font-bold px-3 py-1 rounded-lg text-slate-800">
-                            <input type="number" id="expensesInput" value="300" class="w-16 bg-transparent text-right outline-none font-bold"> €
-                        </div>
-                    </div>
-                    <input type="range" id="expenses" min="0" max="3000" step="50" value="300" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                    <p class="text-xs text-slate-400 mt-1">Logiciels, abonnements, assurance, comptable, matériel, coworking...</p>
-                </div>
-
-                <!-- Input 3: Status / Tax rate -->
-                <div>
-                    <label class="font-semibold text-slate-700 text-sm sm:text-base block mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-building-columns text-slate-400"></i> Statut juridique & Cotisations
-                    </label>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-                        <button type="button" class="status-btn active p-3 rounded-xl border-2 text-left transition-all border-indigo-600 bg-indigo-50/50" data-tax="22" data-type="micro">
-                            <span class="block font-bold text-sm text-slate-900">Micro-entreprise</span>
-                            <span class="text-xs text-slate-500">~22% (Services)</span>
-                        </button>
-                        <button type="button" class="status-btn p-3 rounded-xl border-2 border-slate-200 hover:border-slate-300 text-left transition-all" data-tax="45" data-type="eurl">
-                            <span class="block font-bold text-sm text-slate-900">EURL / EI</span>
-                            <span class="text-xs text-slate-500">~45% charges</span>
-                        </button>
-                        <button type="button" class="status-btn p-3 rounded-xl border-2 border-slate-200 hover:border-slate-300 text-left transition-all" data-tax="75" data-type="sasu">
-                            <span class="block font-bold text-sm text-slate-900">SASU / Salarié</span>
-                            <span class="text-xs text-slate-500">~75% assimilé</span>
-                        </button>
-                    </div>
-                    <div class="flex items-center gap-2 text-sm text-slate-600">
-                        <span>Taux personnalisé d'impôts & charges :</span>
-                        <input type="number" id="taxRate" value="22" min="0" max="90" class="w-16 bg-slate-100 border border-slate-300 rounded px-2 py-1 font-bold text-center"> %
-                    </div>
-                </div>
-
-                <!-- Input 4: Vacation Weeks -->
-                <div>
-                    <div class="flex justify-between items-center mb-2">
-                        <label for="vacation" class="font-semibold text-slate-700 text-sm sm:text-base flex items-center gap-2">
-                            <i class="fa-solid fa-umbrella-beach text-slate-400"></i> Congés payés par an
-                        </label>
-                        <span id="vacationVal" class="font-bold text-slate-800 bg-slate-100 px-3 py-1 rounded-lg">5 semaines</span>
-                    </div>
-                    <input type="range" id="vacation" min="0" max="10" step="1" value="5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                </div>
-
-                <!-- Input 5: Billable Days per Week -->
-                <div>
-                    <div class="flex justify-between items-center mb-2">
-                        <label for="billableDays" class="font-semibold text-slate-700 text-sm sm:text-base flex items-center gap-2">
-                            <i class="fa-solid fa-calendar-check text-slate-400"></i> Jours FACTURÉS par semaine
-                        </label>
-                        <span id="billableDaysVal" class="font-bold text-slate-800 bg-slate-100 px-3 py-1 rounded-lg">3.5 jours / sem</span>
-                    </div>
-                    <input type="range" id="billableDays" min="1" max="5" step="0.5" value="3.5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
-                    <p class="text-xs text-amber-600 font-medium mt-1">
-                        <i class="fa-solid fa-lightbulb"></i> Attention : Un freelance passe en moyenne 30% à 40% de son temps sur de la prospection, gestion et administratif (non facturés).
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- Right Column: Live Results -->
-            <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
-                
-                <!-- Main TJM Result Card -->
-                <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl shadow-indigo-950/20 relative overflow-hidden border border-slate-800">
-                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    
-                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/20 px-3 py-1 rounded-full inline-block mb-4">
-                        Résultat Recommandé
-                    </span>
-                    
-                    <div class="mb-6">
-                        <p class="text-slate-300 text-sm font-medium mb-1">Votre TJM Cible (Hors Taxe) :</p>
-                        <div class="flex items-baseline gap-2">
-                            <span id="resTJM" class="text-5xl sm:text-6xl font-black tracking-tight text-white">0</span>
-                            <span class="text-2xl font-bold text-indigo-300">€ / jour</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800">
-                        <div>
-                            <p class="text-xs text-slate-400 font-medium">Taux Horaire (7h/j)</p>
-                            <p class="text-xl font-bold text-slate-200"><span id="resHourly">0</span> € <span class="text-xs font-normal text-slate-400">/h</span></p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 font-medium">CA Brut Mensuel</p>
-                            <p class="text-xl font-bold text-emerald-400"><span id="resMonthlyGross">0</span> € <span class="text-xs font-normal text-slate-400">/mois</span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Summary Details Card -->
-                <div class="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/60 border border-slate-100 space-y-3">
-                    <h3 class="font-bold text-slate-900 border-b border-slate-100 pb-2 text-sm uppercase tracking-wider text-slate-500">
-                        Analyse Annuelle
-                    </h3>
-                    
-                    <div class="flex justify-between items-center text-sm py-1">
-                        <span class="text-slate-600">Chiffre d'Affaires Annuel Requis</span>
-                        <span id="resYearlyGross" class="font-bold text-slate-900">0 €</span>
-                    </div>
-                    
-                    <div class="flex justify-between items-center text-sm py-1">
-                        <span class="text-slate-600">Cotisations & Impôts (estimés)</span>
-                        <span id="resYearlyTaxes" class="font-semibold text-rose-500">- 0 €</span>
-                    </div>
-
-                    <div class="flex justify-between items-center text-sm py-1">
-                        <span class="text-slate-600">Charges de fonctionnement</span>
-                        <span id="resYearlyExpenses" class="font-semibold text-amber-600">- 0 €</span>
-                    </div>
-
-                    <div class="flex justify-between items-center text-sm py-1 pt-2 border-t border-slate-100">
-                        <span class="text-slate-600">Jours travaillés & facturés</span>
-                        <span id="resBillableDaysYear" class="font-bold text-indigo-600">0 jours / an</span>
-                    </div>
-                </div>
-
-                <!-- Info Box -->
-                <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 flex gap-3 items-start">
-                    <i class="fa-solid fa-circle-info text-indigo-600 text-lg mt-0.5"></i>
-                    <p class="text-xs text-indigo-900 leading-relaxed">
-                        <strong>Conseil de Pro :</strong> N'oubliez pas d'inclure dans vos négociations les périodes inter-contrats potentielles et le coût de votre mutuelle / retraite complémentaire.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Section Benefits / Tips -->
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold mb-4">
-                    <i class="fa-solid fa-bullseye"></i>
-                </div>
-                <h4 class="font-bold text-slate-900 mb-2">Ne bradez pas vos tarifs</h4>
-                <p class="text-sm text-slate-600 leading-relaxed">
-                    Un tarif trop bas renvoie une image d'amateurisme. Vos clients paient pour une expertise rapide, pas seulement pour du temps passif.
-                </p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold mb-4">
-                    <i class="fa-solid fa-piggy-bank"></i>
-                </div>
-                <h4 class="font-bold text-slate-900 mb-2">Pensez à la trésorerie</h4>
-                <p class="text-sm text-slate-600 leading-relaxed">
-                    Mettez toujours l'équivalent de 3 mois de charges de côté pour faire face aux retards de paiement ou aux périodes creuses.
-                </p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold mb-4">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <h4 class="font-bold text-slate-900 mb-2">Revalorisez chaque année</h4>
-                <p class="text-sm text-slate-600 leading-relaxed">
-                    Augmentez vos tarifs de 5% à 10% chaque année auprès de vos nouveaux clients pour refléter la montée en compétences de votre profil.
-                </p>
-            </div>
-        </div>
-
-        <!-- Call To Action (Affiliate / Tool promotion) -->
-        <div class="mt-16 bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-950 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden shadow-2xl border border-emerald-800/50">
-            <div class="absolute -top-24 -left-24 w-60 h-60 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -right-24 w-60 h-60 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="max-w-3xl mx-auto space-y-6 relative z-10">
-                <span class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider">
-                    <i class="fa-solid fa-rocket"></i> Automatisez votre Business Freelance
-                </span>
-
-                <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
-                    Gagnez du temps et faites exploser vos revenus
-                </h2>
-
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                    Simplifiez la gestion de vos clients, vos factures, vos tunnels de vente et votre marketing au même endroit sans prise de tête.
-                </p>
-
-                <div class="pt-4">
-                    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-lg sm:text-xl px-8 py-5 rounded-2xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-400/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 group">
-                        <span>Découvrez l'outil n°1 pour automatiser votre vie (Essai Gratuit)</span>
-                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-                <p class="text-xs text-emerald-300/70 pt-2">
-                    <i class="fa-solid fa-check text-emerald-400 mr-1"></i> Sans carte bancaire requise &bull; Configuration en 2 minutes
-                </p>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 mt-16 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500 space-y-2">
-            <p>© <span id="year"></span> FreelanceRate - Outil d'estimation financière non contractuel.</p>
-            <p class="text-xs text-slate-400">Ce calculateur applique des estimations moyennes sur les cotisations sociales françaises.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript Logic -->
     <script>
-        // Set dynamic year
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const formulaire = document.getElementById('formulaire');
+        const resultat = document.getElementById('resultat');
 
-        // Elements
-        const netSalaryRange = document.getElementById('netSalary');
-        const netSalaryInput = document.getElementById('netSalaryInput');
-        
-        const expensesRange = document.getElementById('expenses');
-        const expensesInput = document.getElementById('expensesInput');
-        
-        const taxRateInput = document.getElementById('taxRate');
-        
-        const vacationRange = document.getElementById('vacation');
-        const vacationVal = document.getElementById('vacationVal');
-        
-        const billableDaysRange = document.getElementById('billableDays');
-        const billableDaysVal = document.getElementById('billableDaysVal');
+        formulaire.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const heures = document.getElementById('heure').value;
+            const tarif = document.getElementById('tarif').value;
+            const pourcentage = document.getElementById('pourcentage').value;
 
-        const statusBtns = document.querySelectorAll('.status-btn');
+            const calcul = (heures * tarif) + ((heures * tarif) * (pourcentage / 100));
 
-        // Results elements
-        const resTJM = document.getElementById('resTJM');
-        const resHourly = document.getElementById('resHourly');
-        const resMonthlyGross = document.getElementById('resMonthlyGross');
-        const resYearlyGross = document.getElementById('resYearlyGross');
-        const resYearlyTaxes = document.getElementById('resYearlyTaxes');
-        const resYearlyExpenses = document.getElementById('resYearlyExpenses');
-        const resBillableDaysYear = document.getElementById('resBillableDaysYear');
-
-        // Sync inputs
-        function syncInputs(range, input) {
-            range.addEventListener('input', (e) => {
-                input.value = e.target.value;
-                calculate();
-            });
-            input.addEventListener('input', (e) => {
-                let val = parseFloat(e.target.value) || 0;
-                range.value = val;
-                calculate();
-            });
-        }
-
-        syncInputs(netSalaryRange, netSalaryInput);
-        syncInputs(expensesRange, expensesInput);
-
-        // Vacation range listener
-        vacationRange.addEventListener('input', (e) => {
-            vacationVal.textContent = `${e.target.value} semaine${e.target.value > 1 ? 's' : ''}`;
-            calculate();
+            resultat.innerText = `Votre facture est de : ${ calcul } €`;
         });
-
-        // Billable days listener
-        billableDaysRange.addEventListener('input', (e) => {
-            billableDaysVal.textContent = `${e.target.value} jour${e.target.value > 1 ? 's' : ''} / sem`;
-            calculate();
-        });
-
-        // Tax rate listener
-        taxRateInput.addEventListener('input', () => {
-            // Remove active status from buttons if custom rate is entered
-            statusBtns.forEach(btn => {
-                btn.classList.remove('border-indigo-600', 'bg-indigo-50/50', 'active');
-                btn.classList.add('border-slate-200');
-            });
-            calculate();
-        });
-
-        // Status preset buttons
-        statusBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                statusBtns.forEach(b => {
-                    b.classList.remove('border-indigo-600', 'bg-indigo-50/50', 'active');
-                    b.classList.add('border-slate-200');
-                });
-                btn.classList.add('border-indigo-600', 'bg-indigo-50/50', 'active');
-                btn.classList.remove('border-slate-200');
-
-                const tax = btn.getAttribute('data-tax');
-                taxRateInput.value = tax;
-                calculate();
-            });
-        });
-
-        // Format currency helper
-        function formatNumber(num) {
-            return new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }).format(Math.round(num));
-        }
-
-        // Calculation Logic
-        function calculate() {
-            const netMonthlyTarget = parseFloat(netSalaryInput.value) || 0;
-            const expensesMonthly = parseFloat(expensesInput.value) || 0;
-            const taxRate = (parseFloat(taxRateInput.value) || 0) / 100;
-            const vacationWeeks = parseFloat(vacationRange.value) || 0;
-            const billableDaysPerWeek = parseFloat(billableDaysRange.value) || 0;
-
-            // Yearly target net + expenses
-            const netYearlyTarget = netMonthlyTarget * 12;
-            const expensesYearly = expensesMonthly * 12;
-
-            // Total Gross turnover required before taxes
-            // Net = Gross * (1 - taxRate) - Expenses  =>  Gross = (Net + Expenses) / (1 - taxRate)
-            let yearlyGrossRequired = 0;
-            if (taxRate < 1) {
-                yearlyGrossRequired = (netYearlyTarget + expensesYearly) / (1 - taxRate);
-            } else {
-                yearlyGrossRequired = (netYearlyTarget + expensesYearly) * 2;
-            }
-
-            const monthlyGrossRequired = yearlyGrossRequired / 12;
-            const yearlyTaxes = yearlyGrossRequired - netYearlyTarget - expensesYearly;
-
-            // Billable days calculation
-            const workingWeeksYear = 52 - vacationWeeks;
-            const totalBillableDaysYear = workingWeeksYear * billableDaysPerWeek;
-
-            // TJM Calculation
-            let tjm = 0;
-            if (totalBillableDaysYear > 0) {
-                tjm = yearlyGrossRequired / totalBillableDaysYear;
-            }
-
-            // Hourly rate (based on 7 hours / day)
-            const hourlyRate = tjm / 7;
-
-            // Update UI
-            resTJM.textContent = formatNumber(tjm);
-            resHourly.textContent = formatNumber(hourlyRate);
-            resMonthlyGross.textContent = formatNumber(monthlyGrossRequired);
-            resYearlyGross.textContent = `${formatNumber(yearlyGrossRequired)} €`;
-            resYearlyTaxes.textContent = `- ${formatNumber(Math.max(0, yearlyTaxes))} €`;
-            resYearlyExpenses.textContent = `- ${formatNumber(expensesYearly)} €`;
-            resBillableDaysYear.textContent = `${Math.round(totalBillableDaysYear)} jours / an`;
-        }
-
-        // Initial calculation on page load
-        calculate();
     </script>
-
 </body>
 </html>
+
+
+Ce code crée une page web avec un formulaire pour saisir les heures travaillées, le tarif horaire et le taux de TVA. Lors du soumission du formulaire, le script JavaScript effectue le calcul et affiche le résultat dans un élément HTML avec l'id "resultat". Ensuite, il y a un paragraphe avec un appel à l'action pour créer un business en ligne avec Systeme.io suivi d'un bouton vert pour lancer mon business en ligne (Essai Gratuit) qui pointe vers la référence Systeme.io.
+
+Notez que ce code utilise HTML5 et CSS3 pour créer un design moderne et accessible. Le script JavaScript utilise l'API DOM pour interagir avec les éléments HTML et afficher le résultat du calcul.
