@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil calculateur de tarifs freelance gratuit</title>
+    <style>
+        /* Style général */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulaire */
+        .formulaire {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formulaire label {
+            margin-bottom: 10px;
+        }
+
+        .formulaire input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Bouton de soumission */
+        .bouton {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bouton:hover {
+            background-color: #3e8e41;
+        }
+
+        /* Bouton d'invitation */
+        .invitation {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .invitation:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Outil calculateur de tarifs freelance gratuit</h1>
+        <form class="formulaire">
+            <label>Heures travaillées par mois :</label>
+            <input type="number" name="heures" />
+            <label>Taux horaire (€/heure) :</label>
+            <input type="number" name="taux" />
+            <label>Taux de TVA (en %) :</label>
+            <input type="number" name="tva" />
+            <button class="bouton">Calculer tarif</button>
+        </form>
+        <div id="resultat"></div>
+        <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="invitation">Automatisez votre business (Essai Gratuit)</a>
+        <script>
+            document.querySelector('button.bouton').addEventListener('click', function(e) {
+                e.preventDefault();
+                let heures = document.querySelector('input[name="heures"]').value;
+                let taux = document.querySelector('input[name="taux"]').value;
+                let tva = document.querySelector('input[name="tva"]').value;
+                let total = (heures * taux) / (1 + (tva / 100));
+                document.querySelector('#resultat').innerText = 'Tarif mensuel : ' + Math.round(total * 100) / 100 + ' €';
+            });
+        </script>
+    </div>
+</body>
+</html>
