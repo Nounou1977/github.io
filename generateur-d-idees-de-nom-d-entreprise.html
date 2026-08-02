@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil de génération de noms d'entreprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resultat {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            background-color: #34C759;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #2ecc71;
+        }
+        
+        .spaced {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Outil de génération de noms d'entreprise</h1>
+        <input type="text" id="nom" placeholder="Entrez votre nom ici">
+        <input type="text" id="prenom" placeholder="Entrez votre prénom ici">
+        <button onclick="genererNom()">Générer un nom d'entreprise</button>
+        <div class="resultat"></div>
+        <p class="spaced">
+            Maintenant que vous avez ce résultat, passez à l'étape suivante.
+            Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.
+        </p>
+        <button class="button" onclick="affiliation()">Lancer mon business en ligne (Essai Gratuit)</button>
+    </div>
+
+    <script>
+        function genererNom() {
+            var nom = document.getElementById("nom").value;
+            var prenom = document.getElementById("prenom").value;
+            var resultat = "";
+
+            if (nom && prenom) {
+                resultat = "Vous pourriez créer une entreprise appelée : " + nom.split("")[0].toUpperCase() + prenom.split("")[0].toUpperCase();
+            } else {
+                resultat = "Veuillez entrer votre nom et votre prénom pour générer un nom d'entreprise.";
+            }
+
+            document.querySelector(".resultat").textContent = resultat;
+        }
+
+        function affiliation() {
+            window.open("https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89", "_blank");
+        }
+    </script>
+</body>
+</html>
