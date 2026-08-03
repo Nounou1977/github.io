@@ -3,81 +3,100 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outil de génération de noms d'entreprise</title>
+    <title>Outil générateur d'idees de nom d'entreprise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f2f2f2;
         }
-        
-        .container {
+        .conteneur {
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px;
             background-color: #fff;
-            border: 1px solid #ddd;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .resultat {
-            font-size: 24px;
+        .nom-entreprise {
+            font-size: 36px;
             font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
-        
-        .button {
+        .bouton {
             background-color: #34C759;
             color: #fff;
-            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
             cursor: pointer;
         }
-        
-        .button:hover {
+        .bouton:hover {
             background-color: #2ecc71;
-        }
-        
-        .spaced {
-            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Outil de génération de noms d'entreprise</h1>
-        <input type="text" id="nom" placeholder="Entrez votre nom ici">
-        <input type="text" id="prenom" placeholder="Entrez votre prénom ici">
-        <button onclick="genererNom()">Générer un nom d'entreprise</button>
-        <div class="resultat"></div>
-        <p class="spaced">
-            Maintenant que vous avez ce résultat, passez à l'étape suivante.
-            Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.
-        </p>
-        <button class="button" onclick="affiliation()">Lancer mon business en ligne (Essai Gratuit)</button>
+    <div class="conteneur">
+        <h1>Entrer vos informations</h1>
+        <form id="formulaire">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom">
+            <br><br>
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom">
+            <br><br>
+            <button type="button" id="generer-idee">Générer l'idée de nom d'entreprise</button>
+        </form>
+        <div id="resultat">
+        </div>
+        <button class="bouton" id="affilier">Lancer mon business en ligne (Essai Gratuit)</button>
+        <p>Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.</p>
     </div>
 
     <script>
-        function genererNom() {
-            var nom = document.getElementById("nom").value;
-            var prenom = document.getElementById("prenom").value;
-            var resultat = "";
+        const formulaire = document.getElementById('formulaire');
+        const generateBtn = document.getElementById('generer-idee');
+        const resultat = document.getElementById('resultat');
+        const affiliierBtn = document.getElementById('affilier');
+
+        generateBtn.addEventListener('click', function() {
+            const nom = formulaire.querySelector('input[name="nom"]').value;
+            const prenom = formulaire.querySelector('input[name="prenom"]').value;
+            let idee = [];
 
             if (nom && prenom) {
-                resultat = "Vous pourriez créer une entreprise appelée : " + nom.split("")[0].toUpperCase() + prenom.split("")[0].toUpperCase();
+                idee.push(nom + ',');
+                idee.push(prenom + ',');
+                const premier = nom.charAt(0).toUpperCase();
+                const deux = prenom.charAt(0).toUpperCase();
+                idee.push(primer + deux,);
+                idee.push(primer + deux + nom.substring(1),);
+                idee.push(primer + deux + prenom.substring(1),);
+                const trois = nom.substring(1) + prenom.substring(1);
+                idee.push(trois.substring(0, 3),);
+                idee.push(nom + prenom,);
+                idee.push(prenom + nom,);
+                const quatre = prenom + prenom + nom,;
+                idee.push(nom.substring(1) + nom.substring(0,1),);
+                idee.push(trois + premier,);
+
+                const resultatHtml = idee.map(uneIdee =>{
+                    return '<p>' + uneIdee + '</p>';
+                }).join("");
+
+                resultat.innerHTML = 'Voici une liste potentielle d'idees de nom d\'entreprise :<br>' + resultatHtml;
+                formulaire.style.display = 'none';
             } else {
-                resultat = "Veuillez entrer votre nom et votre prénom pour générer un nom d'entreprise.";
+                alert('Veillez remplir les champs obligatoires');
             }
+        });
 
-            document.querySelector(".resultat").textContent = resultat;
-        }
-
-        function affiliation() {
-            window.open("https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89", "_blank");
-        }
+        affiliierBtn.addEventListener('click', function() {
+            window.open('https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad8', '_blank');
+        });
     </script>
 </body>
 </html>
