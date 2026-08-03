@@ -1,77 +1,92 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outil calculateur de prix de formation en ligne</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #8000ff, #00008b);
+            background-size: 100% 500px;
+            background-position: 0 0;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        #formulaire {
+        
+        .carte {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%;
-            margin: 40px auto;
-            background-color: #fff;
+            max-width: 600px;
+        }
+        
+        .inputs {
             padding: 20px;
-            border: 1px solid #ddd;
+            border: 2px solid #ccc;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #resultat {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        #resultat h2 {
-            color: #333;
-            margin-top: 0;
-        }
-        #bouton-affiliation {
-            background-color: #2ecc71;
-            color: #fff;
-            padding: 10px 20px;
+        
+        .bouton {
+            background-color: blue;
+            color: white;
+            padding: 20px 40px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            display: block;
-            margin: 50px auto;
         }
-        #bouton-affiliation:hover {
-            background-color: #2ecc6c;
+        
+        .bouton:hover {
+            background-color: #00bfff;
+        }
+        
+        .resultat {
+            font-size: 36px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .affiliation {
+            background-color: #008000;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .affiliation:hover {
+            background-color: #00b300;
+        }
+        
+        .affiliation-text {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .texte {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div id="formulaire">
-        <h2>Outil calculateur de prix de formation en ligne</h2>
-        <form>
-            <label for="nombre-participants">Nombre de participants : </label>
-            <input type="number" id="nombre-participants" name="nombre-participants" value="0">
-            <br><br>
-            <label for="duree-formation">Durée de la formation (en heures) : </label>
-            <input type="number" id="duree-formation" name="duree-formation" value="0">
-            <br><br>
-            <button id="calculer">Calculer le prix de la formation</button>
-        </form>
+    <h1 style="color: white;">Outil : calculateur de prix de formation en ligne</h1>
+    <div class="carte">
+        <input type="text" class="inputs" placeholder="Coût de la formation (en €)"><br>
+        <input type="text" class="inputs" placeholder="Pourcentage de bénéfice"><br>
+        <input type="text" class="inputs" placeholder="Nb de participants"><br>
+        <button class="bouton">Calculer</button><br>
+        <p class="resultat"></p>
     </div>
-    <div id="resultat">
-        <h2>Résultat:</h2>
-        <p id="resultat-prix"></p>
-    </div>
-    <button id="bouton-affiliation">Lancer mon business en ligne (Essai Gratuit)</button>
-    <script>
-        document.getElementById('calculer').addEventListener('click', function() {
-            var nombreParticipants = document.getElementById('nombre-participants').value;
-            var dureeFormation = document.getElementById('duree-formation').value;
-            var prixFormation = nombreParticipants * dureeFormation * 50;
-            document.getElementById('resultat-prix').innerHTML = 'Le prix de la formation est de ' + prixFormation + ' euros.';
-        });
-        document.getElementById('bouton-affiliation').href = 'https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89';
-        document.getElementById('bouton-affiliation').onclick = function() {
-            alert('Maintenant que vous avez ce résultat, passez à l\'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.');
-        };
-    </script>
+    <p class="texte">Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web et automatisez votre business avec Systeme.io.</p>
+    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affiliation">
+        <span class="affiliation-text">Lancer mon business en ligne (Essai Gratuit)</span>
+    </a>
 </body>
 </html>
