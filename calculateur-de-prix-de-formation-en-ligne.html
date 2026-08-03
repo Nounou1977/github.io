@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,89 +7,71 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
             background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .resultat {
-            font-size: 36px;
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .resultat-container {
-            padding: 20px;
+        #formulaire {
+            width: 80%;
+            margin: 40px auto;
             background-color: #fff;
+            padding: 20px;
             border: 1px solid #ddd;
-            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .affiliation {
-            position: relative;
-            z-index: 1;
+        #resultat {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .affiliation-btn {
-            position: relative;
-            z-index: 1;
+        #resultat h2 {
+            color: #333;
+            margin-top: 0;
         }
-        
-        .affiliation-btn > a {
-            text-decoration: none;
+        #bouton-affiliation {
+            background-color: #2ecc71;
             color: #fff;
-            font-size: 18px;
-            font-weight: bold;
             padding: 10px 20px;
-            border-radius: 10px;
-            background-color: #4CAF50;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 50px auto;
         }
-        
-        .affiliation-btn > a:hover {
-            background-color: #3e8e41;
+        #bouton-affiliation:hover {
+            background-color: #2ecc6c;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Outil calculateur de prix de formation en ligne</h1>
-        <input type="number" id="nb-students" placeholder="Nombre d'étudiants">
-        <input type="number" id="nb-cours" placeholder="Nombre de cours">
-        <button id="calculer-btn">Calculer</button>
-        <div class="resultat-container" id="resultat-container">
-            <p class="resultat" id="resultat"></p>
-        </div>
-        <div class="affiliation" style="margin-top: 50px;">
-            <p>Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.</p>
-            <div class="affiliation-btn">
-                <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89">Lancer mon business en ligne (Essai Gratuit)</a>
-            </div>
-        </div>
+    <div id="formulaire">
+        <h2>Outil calculateur de prix de formation en ligne</h2>
+        <form>
+            <label for="nombre-participants">Nombre de participants : </label>
+            <input type="number" id="nombre-participants" name="nombre-participants" value="0">
+            <br><br>
+            <label for="duree-formation">Durée de la formation (en heures) : </label>
+            <input type="number" id="duree-formation" name="duree-formation" value="0">
+            <br><br>
+            <button id="calculer">Calculer le prix de la formation</button>
+        </form>
     </div>
-
+    <div id="resultat">
+        <h2>Résultat:</h2>
+        <p id="resultat-prix"></p>
+    </div>
+    <button id="bouton-affiliation">Lancer mon business en ligne (Essai Gratuit)</button>
     <script>
-        const nbStudentsInput = document.getElementById('nb-students');
-        const nbCoursInput = document.getElementById('nb-cours');
-        const calculerBtn = document.getElementById('calculer-btn');
-        const resultatContainer = document.getElementById('resultat-container');
-        const resultat = document.getElementById('resultat');
-
-        calculerBtn.addEventListener('click', () => {
-            const nbStudents = parseInt(nbStudentsInput.value);
-            const nbCours = parseInt(nbCoursInput.value);
-            const prixFormation = nbStudents * nbCours * 10;
-            resultatContainer.style.display = 'block';
-            resultat.textContent = `Le prix de formation est de ${prixFormation} euros.`;
+        document.getElementById('calculer').addEventListener('click', function() {
+            var nombreParticipants = document.getElementById('nombre-participants').value;
+            var dureeFormation = document.getElementById('duree-formation').value;
+            var prixFormation = nombreParticipants * dureeFormation * 50;
+            document.getElementById('resultat-prix').innerHTML = 'Le prix de la formation est de ' + prixFormation + ' euros.';
         });
+        document.getElementById('bouton-affiliation').href = 'https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89';
+        document.getElementById('bouton-affiliation').onclick = function() {
+            alert('Maintenant que vous avez ce résultat, passez à l\'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.');
+        };
     </script>
 </body>
 </html>
