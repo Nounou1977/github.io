@@ -6,72 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outil de plan de contenu marketing</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
-
-        container {
-            width: 80%;
+        
+        .container {
+            max-width: 800px;
             margin: 40px auto;
-            background-color: #fff;
             padding: 20px;
+            background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .resultat {
-            width: 100%;
-            margin-bottom: 20px;
+        
+        .result {
             padding: 20px;
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+            border-bottom: 1px solid #ccc;
+            border-radius: 10px 10px 0 0;
+            background-color: #f9f9f9;
         }
-
+        
+        .bottom {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 0 0 10px 10px;
+        }
+        
         .button {
-            width: 100%;
-            height: 50px;
-            background-color: #4CAF50;
+            background-color: #34c759;
             color: #fff;
-            padding: 10px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-
+        
         .button:hover {
-            background-color: #3e8e41;
-        }
-
-        .affiliation {
-            margin-top: 50px;
-            text-align: center;
+            background-color: #2ecc71;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Outil de plan de contenu marketing</h1>
-        <form>
-            <label for="contenu">Entrez le contenu de votre publication :</label>
-            <textarea id="contenu" name="contenu" rows="5" cols="40"></textarea>
-        </form>
-        <button class="button" onclick="calculerResultat()">Calculer</button>
-        <div class="resultat" id="resultat"></div>
-        <div class="affiliation">
-            Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.
-            <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="button" target="_blank">
-                Lancer mon business en ligne (Essai Gratuit)
-            </a>
+        <div class="result">
+            <h2>Résultat</h2>
+            <p id="result"></p>
+        </div>
+        <div class="bottom">
+            <p>Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.</p>
+            <button class="button" onclick="openUrl()">Lancer mon business en ligne (Essai Gratuit)</button>
         </div>
     </div>
+
     <script>
-        function calculerResultat() {
-            var contenu = document.getElementById("contenu").value;
-            var resultat = document.getElementById("resultat");
-            resultat.innerHTML = "Le contenu de votre publication est : " + contenu;
+        function openUrl() {
+            window.open("https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89", "_blank");
         }
     </script>
 </body>
