@@ -1,89 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Outil simulateur de rentabilite de liste email</title>
-	<style>
-		body {
-			font-family: 'Segoe UI', Arial, sans-serif;
-			background-color: #3498db; /* Dégradé de bleu ciel au blanc */
-			background-image: linear-gradient(to bottom, #3498db, #f6f6f6);
-			height: 100vh;
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-
-		#outil {
-			background-color: #fff;
-			width: 500px;
-			padding: 40px;
-			border-radius: 20px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			text-align: center;
-		}
-
-		#titre {
-			color: #fff;
-			margin-bottom: 20px;
-		}
-
-		#inputs {
-			border: none;
-			border-bottom: 1px solid #ddd;
-			background-color: #f6f6f6;
-			padding: 10px;
-			border-radius: 20px;
-			width: 80%;
-			margin: 10px auto;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		}
-
-		#btn-calcul {
-			background-color: #4CAF50;
-			color: #fff;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 20px;
-			cursor: pointer;
-		}
-
-		#btn-calcul:hover {
-			background-color: #3e8e41;
-		}
-
-		#resultat {
-			font-size: 24px;
-			color: #333;
-			margin-top: 20px;
-		}
-
-		#affiliation {
-			color: #fff;
-			background-color: #4CAF50;
-			padding: 10px 20px;
-			border-radius: 20px;
-			cursor: pointer;
-		}
-
-		#affiliation:hover {
-			background-color: #3e8e41;
-		}
-	</style>
+    <title>Outil simulateur de rentabilite de liste email</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #5b3cc5, #212121);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .carte {
+            width: 400px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 90%;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .input-field:focus {
+            border-color: #0099ff;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
+        }
+        .submit-button {
+            background-color: #00ccff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            width: 90%;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #00bbff;
+        }
+        .result-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        .affiliation-button {
+            background-color: #2ecc71;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .affiliation-button:hover {
+            background-color: #23a46f;
+        }
+    </style>
 </head>
 <body>
-	<h1 id="titre">Outil : simulateur de rentabilite de liste email</h1>
-	<div id="outil">
-		<input id="input1" type="text" placeholder="Nombre de contacts">
-		<input id="input2" type="text" placeholder="Nombre de emails envoyés">
-		<input id="input3" type="text" placeholder="Taux de réponse">
-		<input id="input4" type="text" placeholder="Taux de clic">
-		<input id="input5" type="text" placeholder="Nombre de clicks">
-		<button id="btn-calcul">Générer</button>
-		<p id="resultat"></p>
-	</div>
-	<p style="margin-top: 50px; color: #fff;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
-	<a id="affiliation" href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank">Découvrir la plateforme (Essai Gratuit)</a>
+    <h1 style="color: #fff;">Outil : simulateur de rentabilite de liste email</h1>
+    <div class="carte">
+        <input class="input-field" type="number" placeholder="Nombre de messages">
+        <input class="input-field" type="number" placeholder="Nombre de clics">
+        <input class="input-field" type="number" placeholder="Nombre de conversions">
+        <button class="submit-button" id="calculate-button">Générer</button>
+        <p class="result-text" id="result"></p>
+    </div>
+    <p style="color: #fff; margin-top: 50px;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
+    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank" class="affiliation-button">Découvrir la plateforme (Essai Gratuit)</a>
 </body>
 </html>
