@@ -1,100 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil de simulateur de rentabilité de liste email</title>
     <style>
         body {
-            background-image: linear-gradient(to bottom, #4b0082, #1a1d23);
+            background-image: linear-gradient(to bottom, #6c5ce7, #2f4f7f);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-align: center;
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #fff;
         }
         
-        .card {
-            width: 800px;
-            height: 600px;
-            border-radius: 20px;
-            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-            padding: 40px;
+        .carte {
             background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 80%;
         }
         
         input[type="text"] {
-            width: 100%;
-            height: 40px;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 20px;
             border: 1px solid #ddd;
-            font-size: 16px;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            font-size: 18px;
         }
         
         input[type="text"]:focus {
-            border-color: #00bfff;
+            border-color: #007bff;
+            box-shadow: 0 0 10px #007bff;
         }
         
-        button {
-            width: 100%;
-            height: 40px;
-            background-color: #00bfff;
+        button[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 40px;
             border: none;
             border-radius: 10px;
-            font-size: 16px;
             cursor: pointer;
-            margin-bottom: 20px;
         }
         
-        button:hover {
-            background-color: #0080ff;
+        button[type="button"]:hover {
+            background-color: #0069d9;
         }
         
-        #resultat {
-            width: 100%;
-            height: 200px;
-            padding: 20px;
+        .resultat {
             font-size: 24px;
-            color: #333;
+            font-weight: bold;
+            margin-top: 20px;
         }
         
-        .footer {
+        .lien {
             margin-top: 50px;
-            text-align: center;
+            text-decoration: none;
         }
         
-        .footer button {
-            width: 100%;
-            height: 40px;
-            background-color: #4CAF50;
+        .lien button {
+            background-color: #34c759;
+            color: #fff;
+            padding: 20px 40px;
             border: none;
             border-radius: 10px;
-            font-size: 16px;
             cursor: pointer;
         }
         
-        .footer button:hover {
-            background-color: #3e8e41;
+        .lien button:hover {
+            background-color: #2ecc71;
         }
     </style>
 </head>
 <body>
-    <h1 style="color: #fff;">Outil : simulateur de rentabilite de liste email</h1>
-    <div class="card">
-        <input type="text" placeholder="Nombre de contacts">
-        <input type="text" placeholder="Taux de conversion">
-        <input type="text" placeholder="Valeur moyenne d'une transaction">
-        <button>Cálculer</button>
-        <div id="resultat"></div>
+    <h1>Outil : simulateur de rentabilité de liste email</h1>
+    <div class="carte">
+        <input type="text" placeholder="Nombres de contacts" required>
+        <input type="text" placeholder="Taux de conversion" required>
+        <input type="text" placeholder="Coût par clic" required>
+        <button type="button" onclick="calculer()">Calculer</button>
+        <span class="resultat" id="resultat"></span>
     </div>
-    <div class="footer">
-        <p style="color: #fff;">Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web et automatisez votre business avec Systeme.io.</p>
-        <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank">
-            <button>Lancer mon business en ligne (Essai Gratuit)</button>
-        </a>
+    <p>Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web et automatisez votre business avec Systeme.io.</p>
+    <div class="lien">
+        <button type="button" onclick="ouvrirFenetre('https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89')">Lancer mon business en ligne (Essai Gratuit)</button>
     </div>
+
+    <script>
+        function calculer() {
+            var nombreContacts = Number(document.querySelector('input[type="text"]').value);
+            var tauxConversion = Number(document.querySelector('input:nth-child(2)').value) / 100;
+            var coutParClic = Number(document.querySelector('input:nth-child(3)').value);
+            var resultat = (nombreContacts * tauxConversion * 1000) / coutParClic;
+            document.querySelector('#resultat').innerHTML = 'Vos revenus quotidiens : ' + Math.floor(resultat) + '€';
+        }
+
+        function ouvrirFenetre(url) {
+            var popup = window.open(url, '_blank', 'width=500,height=300');
+            popup.focus();
+        }
+    </script>
 </body>
 </html>
