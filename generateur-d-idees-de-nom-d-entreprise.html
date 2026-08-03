@@ -1,104 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Outil generateur d'idees de nom d'entreprise</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: linear-gradient(to bottom, #6495ED, #4682B4);
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
+	<title>Outil : generateur d'idees de nom d'entreprise</title>
+	<style>
+		body {
+			background-image: linear-gradient(to bottom, #3300CC, #001388);
+			height: 100vh;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-family: 'Segoe UI', Arial, sans-serif;
+		}
 
-        .carte {
-            width: 800px;
-            background-color: #FFFFFF;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+		.card {
+			background-color: #FFFFFF;
+			padding: 40px;
+			border-radius: 20px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		}
 
-        input[type="text"] {
-            width: 100%;
-            height: 50px;
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+		.input-field {
+			font-size: 18px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			width: 100%;
+			box-sizing: border-box;
+		}
 
-        input[type="text"]:focus {
-            border-color: #007bff;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
+		.input-field:focus {
+			background-color: #ddd;
+			border-color: #aaa;
+		}
 
-        button[type="submit"] {
-            width: 100%;
-            height: 50px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            padding: 10px 20px;
-        }
+		.button {
+			background-color: #00BFFF;
+			border: none;
+			border-radius: 10px;
+			padding: 10px 20px;
+			font-size: 18px;
+			cursor: pointer;
+		}
 
-        button[type="submit"]:hover {
-            background-color: #0069d9;
-        }
+		.button:hover {
+			background-color: #00A7FF;
+		}
 
-        #result {
-            width: 100%;
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
+		.result {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 20px;
+		}
 
-        .affilie {
-            width: 100%;
-            height: 50px;
-            background-color: #32CD32;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 20px;
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
+		.call-to-action {
+			margin-top: 50px;
+			color: #FFFFFF;
+			font-size: 18px;
+			text-align: center;
+		}
 
-        .affilie:hover {
-            background-color: #2ecc71;
-        }
+		.affiliate-button {
+			background-color: #3E8E41;
+			color: #FFFFFF;
+			border: none;
+			border-radius: 10px;
+			padding: 10px 20px;
+			font-size: 18px;
+			cursor: pointer;
+		}
 
-        .affilie:link,
-        .affilie:visited {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .affilie:active {
-            background-color: #34c759;
-        }
-    </style>
+		.affiliate-button:hover {
+			background-color: #2F6C39;
+		}
+	</style>
 </head>
 <body>
-    <h1 style="color: #fff;">Outil : generateur d'idees de nom d'entreprise</h1>
-    <div class="carte">
-        <input type="text" placeholder="Saisir le premier mot...">
-        <input type="text" placeholder="Saisir le deuxième mot...">
-        <input type="text" placeholder="Saisir le troisième mot...">
-        <button type="submit">Calculer</button>
-        <p id="result">Le résultat sera affiché ici...</p>
-    </div>
-    <p style="color: #fff; margin-top: 50px;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
-    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affilie">Découvrir la plateforme (Essai Gratuit)</a>
+	<h1 style="color: #FFFFFF;">Outil : generateur d'idees de nom d'entreprise</h1>
+	<div class="card">
+		<input type="text" class="input-field" placeholder="Entreprise">
+		<input type="text" class="input-field" placeholder="Département">
+		<input type="text" class="input-field" placeholder="Activité">
+		<button class="button">Calculer</button>
+		<p class="result"></p>
+	</div>
+	<p class="call-to-action">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
+	<a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affiliate-button" target="_blank">Découvrir la plateforme (Essai Gratuit)</a>
 </body>
 </html>
