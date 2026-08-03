@@ -1,83 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-	<title>Outil de calculateur de prix de formation en ligne</title>
-	<style>
-		body {
-			background-image: linear-gradient(to bottom, #2F4F7F, #00698f);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			font-family: Segoe UI, Arial, sans-serif;
-		}
-		.container {
-			background-color: #fff;
-			padding: 40px;
-			border-radius: 20px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			width: 400px;
-		}
-		input[type="text"] {
-			width: 100%;
-			height: 50px;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 10px;
-			outline: none;
-		}
-		input[type="text"]:focus {
-			border: 1px solid #00698f;
-			box-shadow: 0 0 5px #00698f;
-		}
-		.button {
-			width: 100%;
-			height: 50px;
-			background-color: #00698f;
-			color: #fff;
-			border: none;
-			border-radius: 10px;
-			cursor: pointer;
-		}
-		.button:hover {
-			background-color: #004a7f;
-		}
-		.result {
-			font-size: 24px;
-			font-weight: bold;
-			color: #333;
-			line-height: 50px;
-		}
-		.footer {
-			margin-top: 50px;
-			text-align: center;
-		}
-		.footer button {
-			background-color: #8BC34A;
-			color: #fff;
-			border: none;
-			border-radius: 10px;
-			cursor: pointer;
-		}
-		.footer button:hover {
-			background-color: #7CB342;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil calculateur de prix de formation en ligne</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #7F00FF, #21283D);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .input-field {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .input-field input[type="text"] {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #D5D5D5;
+            border-radius: 5px;
+            box-shadow: inset 0px 1px 0px #FFFFFF;
+        }
+        
+        .input-field input[type="text"]:focus {
+            border-bottom: 1px solid #00BFFF;
+            box-shadow: inset 0px 1px 0px #FFFFFF;
+            transform: translateY(-1px);
+        }
+        
+        .calculate-button {
+            background-color: #00BFFF;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .calculate-button:hover {
+            background-color: #0057B8;
+        }
+        
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+        }
+        
+        .affiliation-button {
+            background-color: #3AD43A;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .affiliation-button:hover {
+            background-color: #1E7C21;
+        }
+    </style>
 </head>
 <body>
-	<h1 style="text-align: center; color: #fff;">Outil : calculateur de prix de formation en ligne</h1>
-	<div class="container">
-		<input type="text" placeholder="Nombre d'élèves">
-		<input type="text" placeholder="Prix de la formation">
-		<input type="text" placeholder="Durée de la formation">
-		<button class="button">Calculer</button>
-		<div class="result"></div>
-	</div>
-	<div class="footer">
-		<p style="color: #fff;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
-		<a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank">
-			<button style="width: 80%; margin-left: 10%;">Découvrir la plateforme (Essai Gratuit)</button>
-		</a>
-	</div>
+    <h1 style="color: #FFFFFF;">Outil : calculateur de prix de formation en ligne</h1>
+    <div class="card">
+        <div class="input-field">
+            <input type="text" placeholder="Nombre d'élèves">
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Durée de la formation (en heures)">
+        </div>
+        <div class="input-field">
+            <input type="text" placeholder="Prix de la formation par heure">
+        </div>
+        <button class="calculate-button">Calculer</button>
+        <p class="result"></p>
+    </div>
+    <p style="color: #FFFFFF; margin-top: 50px;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
+    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank" class="affiliation-button">Découvrir la plateforme (Essai Gratuit)</a>
 </body>
 </html>
