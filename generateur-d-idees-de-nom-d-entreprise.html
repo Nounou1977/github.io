@@ -1,92 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Outil generateur d'idées de nom d'entreprise</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			height: 100vh;
-			background-image: linear-gradient(to bottom, #3300cc, #0000ff);
-			font-family: 'Segoe UI', Arial, sans-serif;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-		}
-		
-		.carte {
-			width: 400px;
-			height: 500px;
-			background-color: white;
-			border-radius: 20px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			padding: 40px;
-		}
-		
-		.carte input[type="text"] {
-			width: 100%;
-			height: 50px;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			margin-bottom: 20px;
-		}
-		
-		.carte input[type="text"]:focus {
-			border-color: #00b3ff;
-		}
-		
-		.bouton {
-			background-color: #00b3ff;
-			border: none;
-			border-radius: 10px;
-			padding: 10px 20px;
-		 cursor: pointer;
-		}
-		
-		.bouton:hover {
-			background-color: #00a0ec;
-		}
-		
-		.resultat {
-			width: 100%;
-			height: 50px;
-			padding: 10px;
-			font-size: 20px;
-			color: #333;
-		}
-		
-		p {
-			font-size: 15px;
-			margin-top: 50px;
-		}
-		
-		.affiliation {
-			background-color: #34c759;
-			border: none;
-			border-radius: 20px;
-			padding: 10px 20px;
-			cursor: pointer;
-		}
-		
-		.affiliation:hover {
-			background-color: #2ecc71;
-		}
-	</style>
+    <title>Genérateur d'Idées de Nom d'Entreprise</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #6495ED, #00004d);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .carte {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carte-inputs {
+            margin-bottom: 20px;
+        }
+
+        .carte-inputs input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        .carte-inputs input:focus {
+            border: 1px solid #007bff;
+            box-shadow: 0 0 0 5px rgba(0, 0, 128, 0.2);
+        }
+
+        .bouton-bleu {
+            background-color: #007bff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .bouton-bleu:hover {
+            background-color: #0069d9;
+        }
+
+        .resultat {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .text-bas {
+            margin-top: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .bouton-vert {
+            background-color: limegreen;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .bouton-vert:hover {
+            background-color: #32CD32;
+        }
+    </style>
 </head>
 <body>
-	<h1 style="color: white; text-align: center;">Outil : generateur d'idées de nom d'entreprise</h1>
-	<div class="carte">
-		<input type="text" placeholder="Entreprise principale">
-		<input type="text" placeholder="Domaine d'activité">
-		<input type="text" placeholder="Objectif stratégique">
-		<button class="bouton">Générer</button>
-		<p class="resultat"></p>
-	</div>
-	<p style="color: white;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
-	<a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank">
-		<button class="affiliation">Découvrir la plateforme (Essai Gratuit)</button>
-	</a>
+    <h1 style="color: white; text-align: center;">Outil : generateur d idees de nom d entreprise</h1>
+    <div class="carte">
+        <div class="carte-inputs">
+            <input type="text" placeholder="Type d'entreprise">
+            <input type="text" placeholder="Activité de l'entreprise">
+            <input type="text" placeholder="Qualités de l'entreprise">
+        </div>
+        <button class="bouton-bleu">Calculer</button>
+        <p class="resultat"></p>
+    </div>
+    <div class="text-bas">
+        Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.
+    </div>
+    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="bouton-vert" target="_blank">
+        Découvrir la plateforme (Essai Gratuit)
+    </a>
 </body>
 </html>
