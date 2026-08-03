@@ -1,83 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outil simulateur de rentabilité de liste email</title>
+    <title>Outil simulateur de rentabilite de liste email</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
             background-color: #f0f0f0;
         }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
             background-color: #fff;
-            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .resultat {
-            background-color: #f7f7f7;
-            padding: 20px;
-            border: 1px solid #ddd;
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
             margin-bottom: 20px;
         }
+
         .bouton {
-            background-color: #2ecc71;
+            display: block;
+            width: 200px;
+            height: 50px;
+            background-color: #28a745;
             color: #fff;
-            padding: 10px 20px;
+            text-align: center;
+            padding: 10px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
         }
+
         .bouton:hover {
-            background-color: #34c759;
+            background-color: #2ecc71;
+        }
+
+        .spacer {
+            margin: 50px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Résultat du calcul de rentabilité de liste email</h1>
-        <div class="resultat">
-            <p id="resultat"></p>
-        </div>
-        <button class="bouton" id="bouton-affiliation">
+        <h1>Outil simulateur de rentabilite de liste email</h1>
+        <p>Entrez vos données pour calculer la rentabilité de votre liste email :</p>
+        <form>
+            <label for="nombre_abonnés">Nombre d'abonnés :</label>
+            <input type="number" id="nombre_abonnés" value="0">
+            <br><br>
+            <label for="taux_conversion">Taux de conversion (en %) :</label>
+            <input type="number" id="taux_conversion" value="0">
+            <br><br>
+            <label for="valeur_enchère">Valeur de l'envente (en €) :</label>
+            <input type="number" id="valeur_enchère" value="0">
+            <br><br>
+            <button type="button" onclick="calculRentabilite()">Calculer la rentabilité</button>
+        </form>
+        <div class="result" id="result"></div>
+        <div class="bouton">
             Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.
-            <span>Lancer mon business en ligne (Essai Gratuit)</span>
-        </button>
+            <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank" class="bouton">Lancer mon business en ligne (Essai Gratuit)</a>
+        </div>
+        <div class="spacer"></div>
     </div>
+
     <script>
-        // Code JavaScript pour calculer la rentabilité de liste email
-        const resultat = document.getElementById('resultat');
-        const boutonAffiliation = document.getElementById('bouton-affiliation');
-        
-        // Exemple de données pour le calcul
-        const donnees = {
-            liste_email: 1000,
-            ouverture: 0.1,
-            clic: 0.01,
-            conversion: 0.001
-        };
-        
-        // Calcul de la rentabilité de liste email
-        const calcul = () => {
-            const ouverture = donnees.liste_email * donnees.ouverture;
-            const clic = ouverture * donnees.clic;
-            const conversion = clic * donnees.conversion;
-            const resultat_calc = `${donnees.liste_email} emails traités -> ${ouverture.toFixed(2)}% d'ouverture -> ${clic.toFixed(2)} clics -> ${conversion.toFixed(2)} conversions`;
-            resultat.textContent = resultat_calc;
-        };
-        
-        // Exécuter le calcul
-        calcul();
-        
-        // Ajouter un événement de clique au bouton d'affiliation
-        boutonAffiliation.addEventListener('click', () => {
-            window.open('https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89', '_blank');
-        });
+        function calculRentabilite() {
+            let nombreAbonnés = document.getElementById("nombre_abonnés").value;
+            let tauxConversion = document.getElementById("taux_conversion").value;
+            let valeurEnchère = document.getElementById("valeur_enchère").value;
+
+            if (nombreAbonnés > 0 && tauxConversion > 0 && valeurEnchère > 0) {
+                let rentabilité = (tauxConversion / 100) * valeurEnchère * (nombreAbonnés / 100);
+                document.getElementById("result").innerHTML = `La rentabilité de votre liste email est de : ${rentabilité.toFixed(2)} €`;
+            } else {
+                document.getElementById("result").innerHTML = "Veuillez renseigner toutes les données.";
+            }
+        }
     </script>
 </body>
 </html>
