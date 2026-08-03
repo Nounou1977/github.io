@@ -1,89 +1,84 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de prix de formation en ligne</title>
-    <style>
-        body {
-            background: linear-gradient(to top, #6c5ce7, #2f4f7f);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 800px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 18px;
-        }
-
-        input[type="text"]:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 127, 255, 0.5);
-        }
-
-        .button {
-            background: #007bff;
-            padding: 20px 40px;
-            border: none;
-            border-radius: 20px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .button:hover {
-            background: #0056b3;
-        }
-
-        .result {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-top: 20px;
-        }
-
-        .affiliation {
-            background: #34c759;
-            padding: 20px 40px;
-            border: none;
-            border-radius: 20px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .affiliation:hover {
-            background: #2ecc71;
-        }
-    </style>
+	<title>Outil calculateur de prix de formation en ligne</title>
+	<style>
+		body {
+			background-image: linear-gradient(to bottom, #8080ff, #0000ff);
+			font-family: 'Segoe UI', Arial, sans-serif;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background-size: 100% 100vh;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		
+		.container {
+			background-color: #ffffff;
+			padding: 40px;
+			border-radius: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		
+		input {
+			width: 100%;
+			height: 40px;
+			padding: 10px;
+			border: 1px solid #cccccc;
+			border-radius: 10px;
+			outline: none;
+		}
+		
+		input:focus {
+			border-color: #0000ff;
+			box-shadow: 0 0 10px #0000ff;
+		}
+		
+		.button {
+			background-color: #0000ff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		
+		.button:hover {
+			background-color: #0000ff4d;
+		}
+		
+		.result {
+			font-size: 24px;
+			font-weight: bold;
+			color: #000000;
+		}
+		
+		.affiliate {
+			margin-top: 50px;
+			background-color: #008000;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		
+		.affiliate:hover {
+			background-color: #0080004d;
+		}
+	</style>
 </head>
 <body>
-    <h1 style="text-align: center; color: #fff;">Outil : calculateur de prix de formation en ligne</h1>
-    <div class="card">
-        <input type="text" placeholder="Nombre de candidats">
-        <input type="text" placeholder="Nombre de sessions">
-        <input type="text" placeholder="Durée de chaque session (en heures)">
-        <button class="button">Calculer</button>
-        <p class="result"></p>
-    </div>
-    <p style="text-align: center; color: #fff; margin-top: 50px;">Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web et automatisez votre business avec Systeme.io.</p>
-    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affiliation" target="_blank">Lancer mon business en ligne (Essai Gratuit)</a>
+	<h1 style="color: #ffffff;">Outil : calculateur de prix de formation en ligne</h1>
+	<div class="container">
+		<h2>Entrez vos informations</h2>
+		<input type="text" placeholder="Nombre de participants">
+		<input type="text" placeholder="Durée de la formation">
+		<input type="text" placeholder="Coût par participant">
+		<button class="button" style="margin-top: 10px;">Calculer</button>
+		<p class="result"></p>
+	</div>
+	<p style="margin-top: 50px; color: #ffffff;">Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
+	<a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affiliate" style="margin-top: 10px;">Découvrir la plateforme (Essai Gratuit)</a>
 </body>
 </html>
