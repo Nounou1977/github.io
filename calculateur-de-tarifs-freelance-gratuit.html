@@ -1,101 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outil calculateur de tarifs freelance gratuit</title>
+    <title>Outil Calculateur de Tarifs Freelance Gratuite</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            margin: 0;
         }
-
-        .container {
+        #calculateur {
             width: 80%;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .resultat {
-            background-color: #fff;
+            margin: 50px auto;
             padding: 20px;
+            background-color: #fff;
             border: 1px solid #ddd;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 50%;
         }
-
-        .bouton {
+        #resultat {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #affiliation {
             background-color: #2ecc71;
             color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin: 50px 0;
         }
-
-        .bouton:hover {
+        #affiliation:hover {
             background-color: #34c759;
         }
-
-        .link {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .link:hover {
-            color: #2ecc71;
+        #espacement {
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Outil calculateur de tarifs freelance gratuit</h1>
-        <div class="resultat">
-            <h2>Résultat du calcul :</h2>
-            <p id="resultat"></p>
-        </div>
-        <div style="width: 100%;"></div>
+    <div id="calculateur">
+        <h2>Outil Calculateur de Tarifs Freelance Gratuite</h2>
+        <form>
+            <label for="heure">Combien d'heures passez-vous chaque semaine à travailler :</label>
+            <input type="number" id="heure" name="heure">
+            <br><br>
+            <label for="tarif">Quel est votre tarif horaire :</label>
+            <input type="number" id="tarif" name="tarif">
+            <br><br>
+            <label for="pourcentage">Combien représente le pourcentage de profit que vous souhaitez conserver :</label>
+            <input type="number" id="pourcentage" name="pourcentage">
+            <br><br>
+            <button id="calcul" type="submit">Calculer</button>
+        </form>
+        <div id="resultat"></div>
+        <p id="espacement"></p>
         <p>Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web, vos tunnels de vente et automatisez votre business avec Systeme.io.</p>
-        <button class="bouton"><a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="link">Lancer mon business en ligne (Essai Gratuit)</a></button>
+        <button id="affiliation" type="button">Lancer mon business en ligne (Essai Gratuit)</button>
     </div>
 
     <script>
-        function calculTarifs() {
-            // Récupération des valeurs des inputs
-            var heuresParMois = document.getElementById("heuresParMois").value;
-            var prixParHeure = document.getElementById("prixParHeure").value;
+        const formulaire = document.querySelector('form');
+        const resultado = document.querySelector('#resultat');
+        const boutonAffiliation = document.querySelector('#affiliation');
 
-            // Calcul du résultat
-            var resultat = heuresParMois * prixParHeure * 12;
+        formulaire.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const heure = document.querySelector('#heure').value;
+            const tarif = document.querySelector('#tarif').value;
+            const pourcentage = document.querySelector('#pourcentage').value;
+            const salaireHorsTaux = tarif * heure;
+            const pourcentageDeProfit = salaireHorsTaux * (pourcentage / 100);
+            const tauxDeProfit = salaireHorsTaux - pourcentageDeProfit;
+            resultado.textContent = `Votre salaire net pour la semaine est de : ${tauxDeProfit}€`;
+        });
 
-            // Affichage du résultat
-            document.getElementById("resultat").innerHTML = "Vous gagnerez " + resultat + "€ par an.";
-        }
-
-        function init() {
-            document.getElementById("heuresParMois").addEventListener("input", calculTarifs);
-            document.getElementById("prixParHeure").addEventListener("input", calculTarifs);
-        }
-
-        init();
+        boutonAffiliation.addEventListener('click', () => {
+            window.open('https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89', '_blank');
+        });
     </script>
-
-    <form>
-        <label for="heuresParMois">Heures travaillées par mois :</label>
-        <input type="number" id="heuresParMois" value="100">
-        <br><br>
-        <label for="prixParHeure">Prix de l'heure de travail :</label>
-        <input type="number" id="prixParHeure" value="20">
-    </form>
 </body>
 </html>
