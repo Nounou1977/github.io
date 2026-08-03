@@ -1,107 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outil de plan de contenu marketing</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #7A288A, #1A1D23);
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #6c5ce7, #2f4f7f);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .titre {
             color: #fff;
+            text-align: center;
         }
-        
+
         .outil {
-            background: #fff;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
             padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%;
-            max-width: 800px;
+            max-width: 500px;
+            margin-top: 50px;
         }
-        
-        input[type="text"], textarea {
+
+        input[type="text"] {
             width: 100%;
-            height: 60px;
-            padding: 16px;
+            padding: 20px;
             border: 1px solid #ddd;
             border-radius: 10px;
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 20px;
-            resize: none;
         }
-        
-        input[type="text"]:focus, textarea:focus {
+
+        input[type="text"]:focus {
             border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 128, 255, 0.5);
+            outline: none;
         }
-        
-        button[type="button"] {
-            background: #007bff;
+
+        button {
+            background-color: #007bff;
+            padding: 20px 40px;
             border: none;
             border-radius: 10px;
-            padding: 16px 32px;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        
-        button[type="button"]:hover {
-            background: #0056b3;
+
+        button:hover {
+            background-color: #0056b3;
         }
-        
-        button[type="button"]:focus {
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 128, 255, 0.5);
-        }
-        
+
         .resultat {
             font-size: 24px;
-            font-weight: bold;
             color: #333;
+            font-weight: bold;
+            text-align: center;
             margin-top: 20px;
         }
-        
-        .promotion {
+
+        .bouton-derriere {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #0f964f;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .bouton-derriere:hover {
+            background-color: #0b8333;
+        }
+
+        button, .bouton-derriere {
+            width: 100%;
+        }
+
+        #bloc-texte {
+            color: #fff;
             text-align: center;
             margin-top: 50px;
         }
-        
-        .promotion button {
-            background: #34C759;
-            border: none;
-            border-radius: 10px;
-            padding: 16px 32px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-        
-        .promotion button:hover {
-            background: #2ecc71;
-        }
-        
-        .promotion button:focus {
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 128, 255, 0.5);
+
+        #bloc-bouton {
+            text-align: center;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <h1>Outil de plan de contenu marketing</h1>
+    <h1 class="titre">Outil : outil de plan de contenu marketing</h1>
     <div class="outil">
-        <input type="text" placeholder="Entrez votre objet">
-        <input type="text" placeholder="Entrez votre déclaration">
-        <input type="text" placeholder="Entrez votre appel à l'action">
-        <button type="button">Calculer</button>
-        <p class="resultat"></p>
+        <input type="text" placeholder="Tapez votre contenu...">
+        <input type="text" placeholder="Tapez votre contenu...">
+        <input type="text" placeholder="Tapez votre contenu...">
+        <button>Calculer</button>
+        <p class="resultat">Résultat ici...</p>
     </div>
-    <div class="promotion">
-        <p>Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.</p>
+    <div id="bloc-texte">
+        Maintenant que vous avez ce résultat, passez à l'étape supérieure. Découvrez la plateforme n°1 pour créer votre site web, vos tunnels de vente et automatiser tout votre business en un seul endroit.
+    </div>
+    <div id="bloc-bouton">
         <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" target="_blank">
-            <button type="button">Découvrir la plateforme (Essai Gratuit)</button>
+            <button class="bouton-derriere">Découvrir la plateforme (Essai Gratuit)</button>
         </a>
     </div>
 </body>
