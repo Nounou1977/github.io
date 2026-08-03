@@ -1,90 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Outil : calculateur de tarifs freelance gratuit</title>
-<style>
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(to bottom, #6c5ce7, #2f4f7f);
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
- carte {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-  width: 800px;
-  height: 600px;
-}
-
-input[type="text"], input[type="number"] {
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  width: 100%;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-input[type="text"]:focus, input[type="number"]:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px #007bff;
-}
-
-button {
-  background-color: #007bff;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-button:hover {
-  background-color: #0069d9;
-}
-
-.resultat {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 20px;
-}
-
-.affiliation {
-  margin-top: 50px;
-  background-color: #2ecc71;
-  padding: 20px 40px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.affiliation:hover {
-  background-color: #16a085;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil : calculateur de tarifs freelance gratuit</title>
+    <style>
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+        }
+        body {
+            background-image: linear-gradient(to bottom, #6c5ce7, #2f4f7f);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .carte {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 500px;
+            max-width: 90vw;
+        }
+        .input-field {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .input-field:focus {
+            border-color: blue;
+            outline: none;
+            box-shadow: 0 0 10px blue;
+        }
+        .bouton {
+            background-color: blue;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .bouton:hover {
+            background-color: #0057ff;
+        }
+        #resultat {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+        .affiliation {
+            background-color: #34c759;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+        .affiliation:hover {
+            background-color: #2ecc71;
+        }
+    </style>
 </head>
 <body>
-  <h1 style="color: #fff;">Outil : calculateur de tarifs freelance gratuit</h1>
-  <div class="carte">
-    <form>
-      <input type="number" placeholder="Nombre de projets">
-      <input type="number" placeholder="Taux horaire actuel">
-      <input type="number" placeholder="Taux horaire souhaité">
-      <button>Calculer</button>
-    </form>
-    <div class="resultat"></div>
-  </div>
-  <p style="color: #fff; margin-top: 50px;">Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web et automatisez votre business avec Systeme.io.</p>
-  <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affiliation" target="_blank">Lancer mon business en ligne (Essai Gratuit)</a>
+    <h1 style="color: white;">Outil : calculateur de tarifs freelance gratuit</h1>
+    <div class="carte">
+        <form>
+            <input type="text" class="input-field" placeholder="Prix par heure" style="height: 50px;">
+            <input type="text" class="input-field" placeholder="Temps de travail" style="height: 50px;">
+            <input type="text" class="input-field" placeholder="Pourcentage de commission" style="height: 50px;">
+            <button class="bouton" type="submit">Calculer</button>
+        </form>
+        <p id="resultat"></p>
+    </div>
+    <p style="color: white; margin-top: 50px;">Maintenant que vous avez ce résultat, passez à l'étape suivante. Créez votre site web et automatisez votre business avec Systeme.io.</p>
+    <a href="https://systeme.io/fr?sa=sa0005402052e616f3aa5f60c0cf5ad49c228d29ad89" class="affiliation" target="_blank" rel="noopener">
+        Lancer mon business en ligne (Essai Gratuit)
+    </a>
 </body>
 </html>
